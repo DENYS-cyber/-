@@ -1,0 +1,166 @@
+/* Оформлення основного тіла сторінки */
+body {
+  font-family: 'Montserrat', sans-serif; /* Встановлення основного шрифту */
+  background-color: #f4f7f9; /* Світло-сірий колір фону */
+  color: #2c3e50; /* Колір основного тексту (темно-синій) */
+  margin: 0; /* Відсутність зовнішніх відступів */
+  padding: 0; /* Відсутність внутрішніх відступів */
+  line-height: 1.6; /* Висота рядка для кращого читання тексту */
+}
+
+/* Заголовки H1, H2, H3 */
+h1, h2, h3 {
+  font-family: 'Montserrat', sans-serif; /* Однаковий шрифт для заголовків */
+  font-weight: 700; /* Жирний шрифт */
+}
+
+/* Оформлення заголовків секцій */
+.section-title {
+  font-family: 'Pacifico', cursive; /* Декоративний шрифт */
+  color: #2c3e50; /* Темно-синій колір тексту */
+  font-size: 2rem; /* Розмір шрифту */
+  margin-bottom: 20px; /* Відступ знизу */
+  text-align: center; /* Центрування тексту */
+}
+
+/* Оформлення блоку з геро-заголовком */
+.header-hero {
+  background: linear-gradient(135deg, #6a11cb, #2575fc); /* Градієнт фону */
+  padding: 60px 0; /* Вертикальні відступи */
+}
+
+/* Виділення окремих елементів */
+.highlight {
+  color: #ffcc00; /* Жовтий колір */
+  font-weight: bold; /* Жирний текст */
+}
+
+.brand-highlight {
+  color: #1abc9c; /* Бірюзовий колір */
+  font-weight: bold; /* Жирний текст */
+}
+
+/* Оформлення пунктів меню */
+.navbar-nav .nav-link {
+  color: #ecf0f1 !important; /* Світлий колір тексту */
+  margin-left: 15px; /* Відступ зліва */
+  transition: all 0.3s ease; /* Плавна анімація при наведенні */
+}
+
+/* Зміна вигляду посилання при наведенні */
+.navbar-nav .nav-link:hover {
+  color: #1abc9c !important; /* Бірюзовий колір при наведенні */
+  text-decoration: underline; /* Підкреслення тексту */
+}
+
+/* Загальне оформлення кнопок */
+.btn {
+  transition: all 0.3s ease; /* Плавна анімація */
+  border-radius: 8px; /* Скруглені кути */
+}
+
+/* Зелена кнопка */
+.btn-success {
+  background-color: #27ae60; /* Зелений фон */
+  border: none; /* Відсутність рамки */
+}
+
+/* Зміна фону зеленої кнопки при наведенні */
+.btn-success:hover {
+  background-color: #2ecc71;
+}
+
+/* Блакитна кнопка */
+.btn-info {
+  background-color: #3498db;
+  border: none;
+}
+
+/* Зміна фону блакитної кнопки при наведенні */
+.btn-info:hover {
+  background-color: #5dade2;
+}
+
+/* Помаранчева кнопка */
+.btn-warning {
+  background-color: #f39c12;
+  border: none;
+  color: white;
+}
+
+/* Зміна фону помаранчевої кнопки при наведенні */
+.btn-warning:hover {
+  background-color: #f1c40f;
+  color: #2c3e50;
+}
+
+/* Оформлення текстових полів */
+input[type="text"], input[type="number"] {
+  padding: 10px; /* Внутрішні відступи */
+  font-size: 1rem; /* Розмір тексту */
+  width: 100%; /* Ширина 100% контейнера */
+  border: 2px solid #ccc; /* Сіра рамка */
+  border-radius: 6px; /* Скруглені кути */
+  margin-bottom: 15px; /* Відступ знизу */
+  transition: border-color 0.3s ease; /* Плавна зміна кольору рамки при фокусі */
+}
+
+/* Стан фокусу для полів */
+input:focus {
+  border-color: #2980b9; /* Синя рамка при фокусі */
+  outline: none; /* Відсутність стандартного обрамлення */
+  box-shadow: 0 0 5px rgba(41, 128, 185, 0.3); /* Тінь при фокусі */
+}
+
+/* Оформлення карток */
+.card {
+  transition: transform 0.3s ease; /* Плавна анімація трансформації */
+  border-radius: 12px; /* Скруглені кути */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05); /* Легка тінь */
+}
+
+/* Зміна положення картки при наведенні */
+.card:hover {
+  transform: translateY(-5px); /* Підняття вгору */
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15); /* Сильніша тінь */
+}
+
+/* Оформлення цитат */
+.blockquote {
+  font-style: italic; /* Курсив */
+  font-size: 1.2rem; /* Збільшений шрифт */
+  color: #7f8c8d; /* Сірий колір тексту */
+}
+
+/* Оформлення футера */
+footer {
+  background-color: #2c3e50; /* Темно-синій фон */
+  color: #ecf0f1; /* Світлий текст */
+  padding: 20px; /* Внутрішні відступи */
+  text-align: center; /* Центрування тексту */
+  font-size: 0.95rem; /* Зменшений шрифт */
+}
+
+/* Оформлення посилань у футері */
+footer a {
+  color: #1abc9c; /* Бірюзовий колір */
+  font-weight: 500; /* Напівжирний текст */
+}
+
+/* Медіа-запит для екранів до 768 пікселів */
+@media (max-width: 768px) {
+  /* Зменшення розміру заголовка в геро-блоці */
+  .header-hero h1 {
+      font-size: 1.8rem;
+  }
+
+  /* Зменшення розміру заголовка секцій */
+  .section-title {
+      font-size: 1.5rem;
+  }
+
+  /* Зменшення розміру логотипу */
+  .navbar-brand {
+      font-size: 1.2rem;
+  }
+}

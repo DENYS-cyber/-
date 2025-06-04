@@ -1,0 +1,93 @@
+<!DOCTYPE html> <!-- Вказує браузеру, що документ є HTML5 -->
+<html lang="uk"> <!-- Початок HTML-документа з мовою українською -->
+<head> <!-- Початок секції заголовку документа -->
+  <meta charset="UTF-8"> <!-- Встановлення кодування символів UTF-8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Адаптивність для мобільних пристроїв -->
+  <title>Життєва рівновага</title> <!-- Заголовок сторінки у вкладці браузера -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"> <!-- Підключення Bootstrap CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Pacifico&display=swap" rel="stylesheet"> <!-- Підключення шрифтів Google Fonts -->
+  <link rel="stylesheet" href="styles.css"> <!-- Підключення власного CSS -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Підключення бібліотеки Chart.js для графіків -->
+</head>
+<body> <!-- Початок тіла сторінки -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow"> <!-- Навігаційне меню з темною темою та тінню -->
+  <div class="container"> <!-- Контейнер Bootstrap для центрування -->
+    <a class="navbar-brand" href="#">Життєва <span class="brand-highlight">Рівновага</span></a> <!-- Назва сайту -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"> <!-- Кнопка-гамбургер для мобільних пристроїв -->
+      <span class="navbar-toggler-icon"></span> <!-- Іконка гамбургера -->
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav"> <!-- Блок, що буде згортатися на маленьких екранах -->
+      <ul class="navbar-nav ms-auto"> <!-- Список навігаційних пунктів вирівняний праворуч -->
+        <li class="nav-item"><a class="nav-link" href="#goals">Завдання</a></li> <!-- Пункт меню "Завдання" -->
+        <li class="nav-item"><a class="nav-link" href="#nutrition">Раціон</a></li> <!-- Пункт меню "Раціон" -->
+        <li class="nav-item"><a class="nav-link" href="#recipes">Рецепти</a></li> <!-- Пункт меню "Рецепти" -->
+        <li class="nav-item"><a class="nav-link" href="#bmi">ІМТ</a></li> <!-- Пункт меню "ІМТ" -->
+        <li class="nav-item"><a class="nav-link" href="#quotes">Цитати</a></li> <!-- Пункт меню "Цитати" -->
+        <li class="nav-item"><a class="nav-link" href="#analytics">Аналітика</a></li> <!-- Пункт меню "Аналітика" -->
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<header class="header-hero text-white text-center p-5"> <!-- Головний хедер з фоном і центруванням тексту -->
+  <h1 class="display-4">Життєва <span class="highlight">Рівновага</span></h1> <!-- Головний заголовок -->
+  <p class="lead">Ваш персональний фітнес-асистент для здорового життя</p> <!-- Підзаголовок -->
+</header>
+
+<section id="goals" class="container my-5"> <!-- Секція завдань -->
+  <h2 class="section-title">🎯 Завдання на сьогодні</h2> <!-- Заголовок секції -->
+  <ul id="dailyTasks" class="list-group shadow-sm"></ul> <!-- Список завдань -->
+  <button class="btn btn-outline-success mt-3" onclick="generateTasks()">Оновити завдання</button> <!-- Кнопка оновлення завдань -->
+</section>
+
+<section id="nutrition" class="container my-5"> <!-- Секція щоденника харчування -->
+  <h2 class="section-title">🍽️ Щоденник харчування</h2> <!-- Заголовок секції -->
+  <form id="foodForm"> <!-- Форма для додавання продуктів -->
+    <input type="text" id="food" class="form-control mb-2" placeholder="Назва продукту" required> <!-- Поле для назви продукту -->
+    <input type="number" id="calories" class="form-control mb-2" placeholder="Калорії" required> <!-- Поле для калорій -->
+    <button type="submit" class="btn btn-success">Додати</button> <!-- Кнопка додавання -->
+  </form>
+  <ul class="list-group mt-3" id="foodList"></ul> <!-- Список продуктів -->
+</section>
+
+<section id="recipes" class="container my-5"> <!-- Секція корисних рецептів -->
+  <h2 class="section-title">🥗 Корисні рецепти</h2> <!-- Заголовок секції -->
+  <div class="row" id="recipeCards"></div> <!-- Контейнер для карток рецептів -->
+</section>
+
+<section id="bmi" class="container my-5"> <!-- Секція калькулятора ІМТ -->
+  <h2 class="section-title">📏 Калькулятор ІМТ</h2> <!-- Заголовок секції -->
+  <input type="number" id="height" class="form-control mb-2" placeholder="Ваш ріст (см)" required> <!-- Поле для росту -->
+  <input type="number" id="weight" class="form-control mb-2" placeholder="Ваша вага (кг)" required> <!-- Поле для ваги -->
+  <button onclick="calculateBMI()" class="btn btn-info">Розрахувати ІМТ</button> <!-- Кнопка розрахунку ІМТ -->
+  <p class="mt-3 fw-bold" id="bmiResult"></p> <!-- Результат розрахунку ІМТ -->
+</section>
+
+<section id="quotes" class="container my-5"> <!-- Секція мотиваційних цитат -->
+  <h2 class="section-title">💬 Мотивація дня</h2> <!-- Заголовок секції -->
+  <blockquote class="blockquote text-center text-muted"> <!-- Блок цитати -->
+    <p id="quoteText" class="fst-italic">Натисніть кнопку, щоб отримати цитату</p> <!-- Текст цитати -->
+  </blockquote>
+  <div class="text-center"> <!-- Центрування кнопки -->
+    <button class="btn btn-warning" onclick="generateQuote()">Нова цитата</button> <!-- Кнопка для отримання нової цитати -->
+  </div>
+</section>
+
+<section id="analytics" class="container my-5"> <!-- Секція аналітики -->
+  <h2 class="section-title">📊 Аналітика</h2> <!-- Заголовок секції -->
+  <canvas id="calorieChart"></canvas> <!-- Полотно для графіка калорій -->
+</section>
+
+<section class="container my-5 text-center"> <!-- Секція спеціальної поради -->
+  <h2 class="section-title">🎁 Спеціальна порада</h2> <!-- Заголовок секції -->
+  <p class="fs-5">Не забувайте відпочивати та пити воду! Ваше тіло дякує вам за це. 💧</p> <!-- Порада користувачу -->
+</section>
+
+<footer class="bg-dark text-white text-center p-3"> <!-- Нижній колонтитул з темним фоном -->
+  <p class="mb-0">© 2025 <strong>Життєва рівновага</strong> | Електронна пошта: <a href="mailto:denysko6543@gmail.com" class="text-info text-decoration-none">denysko6543@gmail.com</a></p> <!-- Текст футера з email -->
+</footer>
+
+<script src="script.js"></script> <!-- Підключення зовнішнього JS-файлу -->
+</body>
+</html>
